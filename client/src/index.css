@@ -1,8 +1,58 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+  --fs-1: 1.125rem;
+  --fs-2: 1.25rem;
+  --fs-3: 2rem;
+  --fs-small: 0.75rem;
+
+  --fw-1:300;
+  --fw-2:700;
+  --fw-3:900;
+
+  --clr-light-primary: #000;
+  --clr-dark-primary: #fff;
+  --clr-accent:#00aabc;
+
+  --clr-light-dark: #bebebe;
+  --clr-dark-dark: #bebebe;
+  
+  --clr-light-body: #191919;
+  --clr-dark-body: #3c3c3c;
+
+  --clr-information: rgba(58,148,245,1);
+  --clr-success: #1aff00;
+  --clr-caution: #fff946;
+  --clr-danger: #ff0000;
+
+}
+
+*,
+*::before,
+*::after{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  color:var(--clr-light-primary);
+  font-size: var(--fs-1);
+  font-weight: var(--fw-1);
+  line-height: 1.6;
+  background: var(--clr-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset{
+  border:none;
+}
+
+input{
+  background: #fff;
 }

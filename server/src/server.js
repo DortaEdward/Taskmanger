@@ -22,13 +22,15 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('common'));
 app.use(express.json());
+app.use(middleware.checkTokenSetUser);
 
 // Routes
 app.get('/', async (req,res,next) => {
   const users = await Users.find();
   const boards = await Boards.find();
   res.json({users,boards});
-})
+});
+
 app.use(`/api/v${VERSION}/auth`, require('./api/auth'));
 app.use(`/api/v${VERSION}/boards`, require('./api/boards'));
 
