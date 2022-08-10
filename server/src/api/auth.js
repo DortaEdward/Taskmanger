@@ -1,9 +1,7 @@
 const router = require('express').Router();
-const sanitizeRequest = require('express-sanitize-middleware');
 const bcrypt = require('bcrypt');
 const Users = require('../db/models/users');
-const { createJWT } = require('../middleware');
-const sanitize = [ sanitizeRequest({ body: true }), ];
+const { createJWT, sanitize} = require('../middleware');
 
 router.post('/create', sanitize, async (req, res, next) => {
   try {

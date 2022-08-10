@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+const sanitizeRequest = require('express-sanitize-middleware');
+const sanitize = [ sanitizeRequest({ body: true }), ];
 
 const notFound = (req, res, next) => {
   const error = new Error('Not Found - ', req.originalUrl);
@@ -36,5 +38,6 @@ const createJWT = (user,res) => {
 module.exports = {
   notFound,
   errorHandler,
-  createJWT
+  createJWT,
+  sanitize
 };
