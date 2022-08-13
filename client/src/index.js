@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
+import { AuthContextProvider } from './context/auth';
+
 import { BrowserRouter as Router } from 'react-router-dom';
-import { StoreProvider } from 'easy-peasy';
-import store from './Store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <StoreProvider store={ store }>
-        <App />
-      </StoreProvider>
-    </Router>
+      <Router>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </Router>
   </React.StrictMode>
 );
 

@@ -1,4 +1,11 @@
-.taskmanager-signup-form{
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.taskmanager-form{
   width: 850px;
   height: 600px;
   border-radius: 10px;

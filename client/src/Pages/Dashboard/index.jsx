@@ -1,12 +1,14 @@
-// import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
-function Dashboard({ user }) {
+function Dashboard({user}) {
+  console.log(user);
   if(!user){
-    return <Navigate to="/register" replace />
+    return <Navigate to="/login" replace />
   }
   return (
-    <div>Dashboard</div>
+    <div>
+      {JSON.stringify(user)}
+    </div>
   )
 }
 

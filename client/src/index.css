@@ -44,9 +44,6 @@ body {
   font-weight: var(--fw-1);
   line-height: 1.6;
   background: var(--clr-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 fieldset{

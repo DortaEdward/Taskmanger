@@ -25,11 +25,15 @@ app.use(express.json());
 app.use(middleware.checkTokenSetUser);
 
 // Routes
-app.get('/', async (req,res,next) => {
-  const users = await Users.find();
-  const boards = await Boards.find();
-  res.json({users,boards});
-});
+app.get(`/api/v${VERSION}`, async (req,res,next) => {
+  if(req.user){
+    res.status(200).json(req.user);
+  } else {
+    res.status(200).json({
+      message: "No User"
+    });
+  }
+})
 
 app.use(`/api/v${VERSION}/auth`, require('./api/auth'));
 app.use(`/api/v${VERSION}/boards`, require('./api/boards'));
