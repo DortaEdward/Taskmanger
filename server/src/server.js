@@ -25,6 +25,10 @@ app.use(express.json());
 app.use(middleware.checkTokenSetUser);
 
 // Routes
+app.get('/', async(req,res,next) => {
+  const boards = await Boards.find();
+  res.send(boards);
+})
 app.get(`/api/v${VERSION}`, async (req,res,next) => {
   if(req.user){
     res.status(200).json(req.user);
@@ -36,7 +40,7 @@ app.get(`/api/v${VERSION}`, async (req,res,next) => {
 })
 
 app.use(`/api/v${VERSION}/auth`, require('./api/auth'));
-app.use(`/api/v${VERSION}/boards`, require('./api/boards'));
+app.use(`/api/v${VERSION}/boards`, middleware.isLoggedIn, require('./api/boards'));
 
 // Error Handling
 app.use(middleware.notFound);

@@ -25,9 +25,9 @@ router.post('/create', sanitize, async (req, res, next) => {
 router.get('/', async (req, res, next) => {
 try {
   const { ownerId, boardId } = req.query;
-  if(ownerId === req.user.id){
+  if(ownerId === req.user._id){
     if(!boardId){
-      const boards = await Boards.find({ownerId:req.params.ownerId});
+      const boards = await Boards.find({ownerId: ownerId});
       res.status(200).json({
         status: res.status,
         boards: boards,

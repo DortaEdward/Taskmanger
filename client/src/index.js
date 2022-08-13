@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { BoardsContextProvider } from './context/board';
 import App from './App';
 
 import { AuthContextProvider } from './context/auth';
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
       <Router>
         <AuthContextProvider>
-          <App />
+          <BoardsContextProvider>
+            <App />
+          </BoardsContextProvider>
         </AuthContextProvider>
       </Router>
   </React.StrictMode>

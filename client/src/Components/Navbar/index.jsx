@@ -1,8 +1,18 @@
-import React from 'react'
+import {Link} from 'react-router-dom'
+import './styles.css';
 
-function Navbar() {
+function Navbar({ user }) {
   return (
-    <div>Navbar</div>
+    <nav>
+        <Link to='/' className='nav-link'>Home</Link>
+        <Link to='/account' className='nav-link'>
+          <p className="user-img">
+            {
+              user.displayName
+            }
+          </p>
+        </Link>
+    </nav>
   )
 }
 

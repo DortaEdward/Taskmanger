@@ -8,6 +8,10 @@ const userApi = axios.create({
   baseUrl: `${process.env.REACT_APP_API_URL}`
 })
 
+const boardApi = axios.create({
+  baseUrl: `${process.env.REACT_APP_API_URL}/boards`
+})
+
 export const loginCall = async (user, dispatch) => {
   dispatch({ type: 'LOGIN_START' });
   try {
@@ -36,4 +40,23 @@ export const getUser = async (token, dispatch) => {
       });
     }
   }
+}
+
+export const getBoards = async (userId,dispatch) => {
+  dispatch({ type: 'RETRIEVE_BOARDS_START' });
+  try {
+    const token = localStorage.getItem('token');
+    const config = { headers: {authorization: `Bearer ${token}`} }
+    const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/boards?ownerId=${userId}`, config);
+    dispatch({
+      type:'RETRIEVE_BOARDS_SUCCESS',
+      payload:data.boards
+    })
+  } catch (error) {
+    dispatch({
+      type:'RETRIEVE_BOARDS_START',
+      payload:error
+    })
+  }
+  
 }

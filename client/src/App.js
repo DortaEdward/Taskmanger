@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+
 import { AuthContext } from './context/auth';
 
 import Dashboard from './Pages/Dashboard';

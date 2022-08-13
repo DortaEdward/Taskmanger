@@ -1,0 +1,29 @@
+nav{
+  display: flex;
+  align-items: center;
+}
+
+.nav-link{
+  margin: 0 1rem;
+  font-size: var(--fs-2);
+  text-decoration: none;
+  color: var(--clr-light-primary);
+  transition: all ease-in-out 0.3s;
+}
+
+.nav-link:hover{
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.user-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  outline: solid white 1px;
+  text-transform: capitalize;
+  text-decoration: none;
+  border-radius: 4px;
+}
